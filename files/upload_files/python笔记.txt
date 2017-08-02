@@ -1,0 +1,11 @@
+python2安装mysql-connector-python模块: sudo pip install mysql-connector-python
+
+如果报错可尝试:sudo pip install --egg -i https://pypi.doubanio.com/simple/ mysql-connector-python
+
+如果下载速度过慢，可尝试豆瓣的源:sudo pip install -i https://pypi.doubanio.com/simple/ mysql-connector-python
+
+输入一个十进制数，输出一个二进制串：n = int(input())    print(bin(n)[2:])
+
+升级python3的pip：python3 -m pip install --upgrade pip  或者python3 -m pip install -U pip
+
+安装flask连接sqlalchemy的组件：pip install flask-SQLALchemy

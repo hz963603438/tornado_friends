@@ -1,0 +1,217 @@
+<!doctype html>
+<html>
+	<head>
+		<!--声明当前网页的编码集：中文编码（GBK/GB2312），国际编码（utf-8）--->
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+		<!--声明当前页面的三要素-->
+		<title>QQ空间时光轴 - Sy</title>
+		<meta name="Keywords" content="关键词,关键词,关键词">
+		<meta name="description" content=""><!--描述信息（百度快照）八十个字以内-->
+		<!--css/js-->
+		<style type="text/css">
+	*{margin:0;padding:0;}/*设置所有边距为0*/
+a{text-decoration:none;}/*去掉a标签的下划线*/
+body{background:url('img/images/body_bg.jpg');font-size:12px;font-family:'微软雅黑';color:#666;}/*设置背景，字体，字体颜色大小*/
+.timeline{margin:0 auto;position:relative;padding:63px 0 0 215px;}/*设置外边距*/
+.timeline .t_line{width:5px;height:1500px;background:#ccc;position:absolute;top:128px;left:254px;}/*设置竖线的位置宽度*/
+.timeline .t_send{width:760px;height:200px;margin:0 0 40px -24px;position:fixed;bottom:0px;left:500px;right:0px;}/*设置发送头像位置*/
+.timeline .t_send .t_header img{border-radius:50%;/*设置头像为圆形*/overflow:hidden;-webkit-filter:brightness(0.8);/*设置头像的亮度*/}
+.timeline .t_send .t_header:hover img{filter:blur(0.5);/*给图像设置高斯模糊（越大越模糊）*/-webkit-filter:brightness(1);/*鼠标放上去图片变亮*/cursor:pointer;/*鼠标指针放在一个元素边界范围内时所用的光标形状*/}
+.timeline .t_send .t_header{float:left;}/*头像向左对其*/
+
+.timeline .t_send .box{border-radius:5px;/*设置box的边框圆角*/width:800px;height:165px;background:white;float:right;margin-right:auto;}
+.timeline .t_send .t_title{padding:12px 0px 10px 18px;font-size:14px;/*设置p标签的内边距和字体大小*/}
+.timeline .t_send .box .t_input{width:790px;height:70px;border:1px solid #e5e5e5;margin:0 auto;outline:none;padding:8px 0px;overflow:auto;/*内容溢出加滚动条*/-webkit-user-modify: read-write-plaintext-only;}
+.timeline .t_send .box .t_input img{margin:2px;vertical-align:middle;}
+.timeline .t_send .box .t_face .t_gif{float:left;margin:6px 0px 0px 12px;}/*设置表情按钮样式*/
+.timeline .t_send .box .t_face .t_btn{display:block;float:right;width:80px;height:22px;text-align:center;line-height:22px;background:#FA0;color:white;font-weight:bold;border-radius:2px;margin:8px 19px 0 0;}/*设置按钮样式*/
+.timeline .t_send .box .t_face .t_btn:hover{background:#F90;}/*设置鼠标悬浮按钮颜色*/
+.timeline .t_send .box .t_box{width:365px;height:180px;background:#fff;box-shadow:1px 1px 11px #000;/*设置阴影*/border-radius:3px;position:absolute;bottom:-140px;left:170px;overflow:auto;display:none;z-index:1;}
+.timeline .t_send .box .t_box ul li {list-style:none;display:inline-block;margin:2px 2px 2px 3px;cursor:pointer;}
+			.timeline .t_send .box .t_box ul{margin-left:8px;padding-top:6px;}
+
+			.timeline .t_all{position:fixed;bottom:170px;left:425px;}
+			.timeline .t_all .t_list{margin:20px 0;}
+			.timeline .t_all .t_list .t_header{float:left;margin-left:10px;}
+			.timeline .t_all .t_list .t_header img{border-radius:50%}
+			.timeline .t_all .t_list .t_icon{}
+			.timeline .t_all .t_msg{width:500px;background:#FFFA;float:left;margin-top:2px;border-radius:5px;padding:20px;}
+			.timeline .t_all .t_msg img{vertical-align:middle;}
+			/*end timeline*/
+			.clear{clear:both;}
+			
+		</style>
+		<link rel="stylesheet" href="css/animate.css" />
+	</head>
+<body>
+	<!--用户列表-->
+	<div id="users">	</div>
+
+	<!-- timeline start -->
+	<div class="timeline">
+		<div class="t_all">
+			<div class="t_list">
+				<div class="t_header"></div>
+				<div class="t_icon"></div>
+				<div class="t_msg"></div>
+				<div class="clear"></div>
+			</div>
+		</div>
+		<div class="t_send">
+			<div class="t_header"></div>
+	  		<div class="t_icon"></div>
+			<span class="t_header"><img src="" alt="" width="0" height="0" /></span>
+			<div class="box">
+				<p class="t_title">你今天有什么想说？大声说出来吧！</p>
+				<div class="t_input" contenteditable="true" maxlength="2"></div>
+				<p class="t_face">
+					<a href="#" class="t_gif">
+						<img src="img/images/bq.jpg" alt="" width="22" height="22" />
+					</a>
+					<a href="#" class="t_btn">发&nbsp;&nbsp;&nbsp;表</a>
+				</p>
+				<div class="t_box">
+					<ul id="q_ul">
+						<li><img src="img/images/face/1.png" alt="" width="22" height="22" title="[d笑疯]" /></li>
+						<li><img src="img/images/face/2.png" alt="" width="22" height="22" title="[d拜]" /></li>
+						<li><img src="img/images/face/3.png" alt="" width="22" height="22" title="[d发怒]" /></li>
+						<li><img src="img/images/face/4.png" alt="" width="22" height="22" title="[d笑]" /></li>
+						<li><img src="img/images/face/5.png" alt="" width="22" height="22" title="[d吃]" /></li>
+						<li><img src="img/images/face/6.png" alt="" width="22" height="22" title="[d造型]" /></li>
+						<li><img src="img/images/face/7.png" alt="" width="22" height="22" title="[d大嘴]" /></li>
+						<li><img src="img/images/face/8.png" alt="" width="22" height="22" title="[可爱]" /></li>
+						<li><img src="img/images/face/9.png" alt="" width="22" height="22" title="[造型]" /></li>
+						<li><img src="img/images/face/10.png" alt="" width="22" height="22" title="[笑疯]" /></li>
+						<li><img src="img/images/face/11.png" alt="" width="22" height="22" title="[撇嘴]" /></li>
+						<li><img src="img/images/face/12.png" alt="" width="22" height="22" title="[m招呼]" /></li>
+						<li><img src="img/images/face/13.png" alt="" width="22" height="22" title="[m发怒]" /></li>
+						<li><img src="img/images/face/14.png" alt="" width="22" height="22" title="[m伤心]" /></li>
+						<li><img src="img/images/face/15.png" alt="" width="22" height="22" title="[m造型]" /></li>	
+					</ul>
+				</div>
+			</div>
+		</div> 
+	</div>
+	
+	<div id="footer"></div>
+	<!-- end timeline -->
+
+	<!-- 引用jQuery官方类库 -->
+	<script type="text/javascript" src="js/jquery-2.2.0.min.js"></script>
+	<script type="text/javascript">
+	$(document).ready(function(){
+		//与服务器建立websocket链接请求
+			//var url = "ws://" + location.host + "/messagewebsocket";
+			
+   			//var ws = new WebSocket(url);
+			var ws = "192.168.0.131";
+			//当收到服务器向浏览器推送消息时调用这个函数
+			ws.onmessage = function(event) {
+                alert(JSON.parse(event.data));
+                message = JSON.parse(event.data);
+                append(message);
+            };
+			//与服务器的链接关闭时调用这个函数
+			ws.onclose=function () {
+			    alert('onclose');
+			    ws.close();
+            };
+
+			//通信过程中有错误时调用这个函数
+			ws.onerror=function() {
+			    alert('onerror');
+			};
+
+			//与服务器建立链接时调用这个函数
+			ws.onopen=function(){
+			 alert("------------------websocket onopen----------------")
+			};
+
+			//点出头像函数
+			$('.t_gif').click(function(){
+				$('.t_box').toggle(300);
+			});
+
+			// 点击表情时把点击的表情添加到文本框中
+			$('#q_ul li').click(function(){
+				var img = $(this).find("img").clone();
+				//console.log( img)
+				$(".t_input").append(img);
+				$(".t_input").focus();
+			});
+
+			// 点击发布按钮时调用wsbsocket.send（）函数向服务器发送数据
+			$(".t_btn").click(function(){
+				var content = $('.t_input').text();
+				var img = $('.t_input img').get();
+				var path = $(".t_input img").attr("src")
+				
+				var massage = {
+				    "content":content,
+					"path":path
+				}
+				
+				//var a = $('.t_input').attr('messagedata');
+				//alert(a);
+				append();
+				console.log(massage);
+				//向服务器发送消息
+				//ws.send(JSON.stringify(massage));
+				//关闭当前链接
+				//ws.close()
+			});
+			
+			//时间戳转字符串函数
+		    function formatDate(now){
+				var   year=now.getFullYear();
+				var   month=now.getMonth()+1;
+				var   date=now.getDate();
+				var   hour=now.getHours();
+				var   minute=now.getMinutes();
+				var   second=now.getSeconds();
+				return   year+"-"+month+"-"+date+"   "+hour+":"+minute+":"+second;
+			}
+			
+			// 动态添加发布消息的函数
+			function append(msg){
+				$(".t_all").prepend(function(n){
+				var msg1='';
+				var img1='';
+				var useravatar='';
+				var datetime1='';
+				var selfavtar = $(".t_header img").attr("src").split('/')[4];
+				//alert(selfavtar);
+				if(msg){
+					msg1 = msg.content;
+					useravatar = msg.useravatar;
+					datetime1 = msg.datetime;
+					//console.log(msg,msg1,useravatar,datetime1);
+					if(msg.path) {
+                        img1 = "<img src='" + msg.path + "' alt='' width='22' height='22' />"
+                    }
+				}else{
+					msg1 = $('.t_input').html();
+					useravatar = selfavtar
+					alert(useravatar);
+					datetime1 = formatDate(new Date( new Date().getTime()));
+					//alert();
+				}
+				return "<div class='t_list'>"+
+							"<div class='t_header'>"+
+
+								"<img src='img/images/useravatars/avatar3311.jpg' alt='' width='64' height='64' />"+
+							"</div>"+
+							"<div class='t_icon' style='background:url('img/images/arrow.png')no-repeat;'></div>"+
+							"<div class='t_msg' style='border:1px solid white;color:black;'>"+img1+msg1+"</div>"+datetime1+
+							"<div class='clear'></div>"+
+						"</div>"
+				});
+				$('.t_box').hide(400);
+				$('.t_input').text('');
+				$('.t_input').focus();
+			}
+		});
+	</script>
+</body>
+</html>

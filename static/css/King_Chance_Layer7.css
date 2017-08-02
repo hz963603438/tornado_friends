@@ -1,0 +1,23 @@
+﻿@charset "utf-8";
+/* CSS Document */
+* { margin:0; padding:0;}
+.King_Chance_Layer { position:fixed; right:0; bottom:0; width:0; height:0; z-index:999;}
+.King_Chance_Layer * { margin:0; padding:0; border:none; list-style:none;}
+
+*html .King_Chance_Layer  {position:absolute; top:expression(offsetParent.scrollTop+document.documentElement.clientHeight-this.offsetHeight);}
+.King_Chance_LayerCont { position:absolute; width:420px; height:316px; overflow:hidden; font-size:12px; right:0; bottom:0; display:none; background:url(/static/images/King_imgs/King_Chance_Layer_Title7.gif) no-repeat left top;}
+.King_Chance_LayerCont img {border:none; float:none; vertical-align:top;}
+.King_Chance_LayerCont ul,.King_Chance_LayerCont ol {list-style:none;}
+.King_Chance_LayerCont a,.King_Chance_LayerCont a:link,.King_Chance_LayerCont a:visited,.King_Chance_LayerCont a:hover,.King_Chance_LayerCont a:active { text-decoration:none;}
+.King_Chance_Layer_Close { width:13px; height:13px; background:url(/static/images/King_imgs/King_Chance_Layer_Close.jpg) no-repeat; position:absolute; font-size:0px; right:5px; top:5px; cursor:pointer;}
+.King_Chance_Layer_Title { padding:2px 0; margin:0 auto; width:320px; height:24px; font:10px/18px "Microsoft YaHei"; overflow:hidden; color:#fff; overflow:hidden; white-space:nowrap;}
+.King_Chance_Layer_Btn { padding-left:50px;  overflow:hidden; height:20px; width:405px; background:url(King_Chance_Layer_Btn7.gif) no-repeat;}
+.King_Chance_Layer_Btn li { float:left; width:65px; height:20px; line-height:20px; text-align:center; overflow:hidden;}
+.King_Chance_Layer_Btn li a { display:inline-block; width:65px; overflow:hidden; white-space:nowrap; background-color:#42302a; color:#fff;}
+.King_Chance_Layer_Btn li a:link,.King_Chance_Layer_Btn li a:visited { color:#fff;}
+.King_Chance_Layer_Btn li a:hover { background-color:#ff6600;}
+.King_Chance_Layer_Btn li.hover a,.King_Chance_Layer_Btn li.hover a:link,.King_Chance_Layer_Btn li.hover a:visited { background-color:#ff6600;}
+
+.King_Chance_Layer_Content { background-color:#000; padding:30px 0; width:100%; height:280px;margin-top: 5px; overflow:hidden;}
+.King_Chance_Layer_Content li { margin:0 auto; border:1px solid #fff; width:400px; height:216px; overflow:hidden; display:none;}
+.King_Chance_Layer_Content li img { width:100%;}

@@ -1,0 +1,160 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1.0,user-scalable=no">
+
+<title>无标题文档</title>
+<link rel="stylesheet" href="bootstrap-3.3.7/dist/css/bootstrap.min.css">  
+<script src="https://cdn.bootcss.com/jquery/2.1.1/jquery.min.js"></script>
+<script src="bootstrap-3.3.7/dist/js/bootstrap.min.js"></script>
+<style type="text/css">
+
+</style>
+<link rel="stylesheet" href="css/animate.css" />
+</head>
+
+<body>
+<div class="container">                 
+	<img src="ipush4.jpg" width="365px" /> 
+</div>
+	<div id="users">
+		<h1>{{username.username}}</h1><p/>
+	</div>
+	<div class="timeline">
+		<div class="t_all">
+		{% for message in messages  %}
+			<div class="t_list">
+			{{ message['datetime'] }}
+				<div class="t_header"></div>
+				<div class="t_icon"></div>
+				<div class="t_msg">{{ message['content'] }}</div>
+				<div class="clear"></div>
+			</div>
+		</div>
+		<div class="t_send">
+			<div class="t_header"></div>
+	  		<div class="t_icon"></div>
+			<span class="t_header"><img src="" alt="" width="0" height="0" /></span>
+			<div class="box">
+				<div class="t_input" contenteditable="true" maxlength="2" style="overflow:auto"></div>
+				<p class="t_face"><a href="#" class="t_btn">发&nbsp;&nbsp;&nbsp;表</a></p>
+			</div>
+		</div> 
+	</div>
+	<script type="text/javascript" src="{{static_url('js/jquery-2.2.0.min.js')}}"></script>
+	<script type="text/javascript">
+	$(document).ready(function(){
+		//与服务器建立websocket链接请求
+			var url = "ws://" + location.host + "/messagewebsocket";
+			
+   			var ws = new WebSocket(url);
+			//var ws = "192.168.0.131";
+			//当收到服务器向浏览器推送消息时调用这个函数
+			ws.onmessage = function(event) {
+                alert(JSON.parse(event.data));
+                message = JSON.parse(event.data);
+                append(message);
+            };
+			//与服务器的链接关闭时调用这个函数
+			ws.onclose=function () {
+			    alert('onclose');
+			    ws.close();
+            };
+
+			//通信过程中有错误时调用这个函数
+			ws.onerror=function() {
+			    alert('onerror');
+			};
+
+			//与服务器建立链接时调用这个函数
+			ws.onopen=function(){
+			 alert("------------------websocket onopen----------------")
+			};
+
+			//点出头像函数
+			$('.t_gif').click(function(){
+				$('.t_box').toggle(300);
+			});
+
+			// 点击表情时把点击的表情添加到文本框中
+			$('#q_ul li').click(function(){
+				var img = $(this).find("img").clone();
+				//console.log( img)
+				$(".t_input").append(img);
+				$(".t_input").focus();
+			});
+
+			// 点击发布按钮时调用wsbsocket.send（）函数向服务器发送数据
+			$(".t_btn").click(function(){
+				var content = $('.t_input').text();
+				var img = $('.t_input img').get();
+				var path = $(".t_input img").attr("src")
+				
+				var massage = {
+				    "content":content,
+					"path":path
+				}
+				
+				//var a = $('.t_input').attr('messagedata');
+				//alert(a);
+				append();
+				console.log(massage);
+				//向服务器发送消息
+				//ws.send(JSON.stringify(massage));
+				//关闭当前链接
+				//ws.close()
+			});
+			
+			//时间戳转字符串函数
+		    function formatDate(now){
+				var   year=now.getFullYear();
+				var   month=now.getMonth()+1;
+				var   date=now.getDate();
+				var   hour=now.getHours();
+				var   minute=now.getMinutes();
+				var   second=now.getSeconds();
+				return   year+"-"+month+"-"+date+"   "+hour+":"+minute+":"+second;
+			}
+			
+			// 动态添加发布消息的函数
+			function append(msg){
+				$(".t_all").prepend(function(n){
+				var msg1='';
+				var img1='';
+				var useravatar='';
+				var datetime1='';
+				var selfavtar = $(".t_header img").attr("src").split('/')[4];
+				//alert(selfavtar);
+				if(msg){
+					msg1 = msg.content;
+					useravatar = msg.useravatar;
+					datetime1 = msg.datetime;
+					//console.log(msg,msg1,useravatar,datetime1);
+					if(msg.path) {
+                        img1 = "<img src='" + msg.path + "' alt='' width='22' height='22' />"
+                    }
+				}else{
+					msg1 = $('.t_input').html();
+					useravatar = selfavtar
+					alert(useravatar);
+					datetime1 = formatDate(new Date( new Date().getTime()));
+					//alert();
+				}
+				return "<div class='t_list'>"+
+							"<div class='t_header'>"+
+							"<img src='avatar3311.jpg' width='50px' height='50px' style='float:left;border-radius:50%;' />"+img1+
+							"</div>"+
+							
+							"<div class='t_msg' style='border:1px solid red;color:black;margin:20px 50px;'>"+msg1+"</div>"+datetime1+
+							"<div class='clear'></div>"+
+						"</div>"
+				});
+				$('.t_box').hide(400);
+				$('.t_input').text('');
+				$('.t_input').focus();
+			}
+		});
+	</script>
+</body>
+</html>

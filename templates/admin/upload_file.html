@@ -1,0 +1,35 @@
+{% extends "admin_base.html" %}
+{% block title %} 管理后台{% end %}
+<!-- page heading start-->
+{% block heading%}
+<div class="page-heading">
+    <h3>
+        Dashboard
+    </h3>
+    <ul class="breadcrumb">
+        <li>
+            <a href="#">Dashboard</a>
+        </li>
+        <li class="active"> My Dashboard </li>
+    </ul>
+</div>
+{% end %}
+<!-- page heading end-->
+
+<!--body wrapper start-->
+{% block wrapper %}
+<div class="wrapper">
+            <div class="row">
+            <div class="col-sm-12">
+                <section class="panel">
+                   <form method="post" action="/uploadfile" enctype="multipart/form-data">
+                        {% module xsrf_form_html() %}
+                        <input type="file" name="myfilename"/><br/>
+                        <input type="submit" value="上传文件" />
+                    </form><br/>
+                </section>
+            </div>
+        </div>
+    </div>
+{% end %}
+<!--body wrapper end-->

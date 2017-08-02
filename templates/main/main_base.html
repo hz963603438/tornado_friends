@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+  <meta name="description" content="">
+  <meta name="author" content="ThemeBucket">
+  <link rel="shortcut icon" href="#" type="image/png">
+
+  <title>Horizontal menu Page</title>
+
+  <link href="/static/common/css/style.css" rel="stylesheet">
+  <link href="/static/common/css/style-responsive.css" rel="stylesheet">
+
+  <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+  <!--[if lt IE 9]>
+  <script src="/static/common/js/html5shiv.js"></script>
+  <script src="/static/common/js/respond.min.js"></script>
+  <![endif]-->
+</head>
+
+<body class="horizontal-menu-page">
+
+<section>
+
+    <nav class="navbar navbar-default" role="navigation">
+        <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="index.html">
+                    <img src="/static/common/images/logo.png" alt="">
+                </a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <li ><a href="/">首页</a></li>
+                    <li class="active"><a href="/friendslist">朋友圈</a></li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">UI Kits <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">General</a></li>
+                            <li><a href="#">Buttons</a></li>
+                            <li><a href="#">Widget</a></li>
+                            <li><a href="#">Slider</a></li>
+                            <li><a href="#">Many More</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="/bloglist">博客</a></li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">个人中心<b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">Form Elements</a></li>
+                            <li><a href="#">Advanced Components</a></li>
+                            <li><a href="#">Form Wizard</a></li>
+                            <li><a href="#">Form Validation</a></li>
+                            <li><a href="#">Dropzone</a></li>
+                        </ul>
+                    </li>
+                </ul>
+
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <form class="navbar-form navbar-left" role="search">
+                            <div class="form-group">
+                                <input type="text" class="form-control" placeholder="Search">
+                            </div>
+                        </form>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            <img alt="" src="/static/common/images/photos/user-avatar.png"> {{ current_user.username }}
+                            <b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">Profile</a></li>
+                            <li><a href="#">Settings</a></li>
+                            <li><a href="/loginout">Log Out</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div><!-- /.navbar-collapse -->
+        </div><!-- /.container-fluid -->
+    </nav>
+
+
+    <!--body wrapper start-->
+    {% block wrapper %}
+        <div class="wrapper">
+            Body contents goes here
+        </div>
+    {% end %}
+    <!--body wrapper end-->
+
+    <!--footer section start-->
+    {% block footer %}
+        <footer class="sticky-footer">
+            Footer contents goes here
+        </footer>
+    {% end %}
+    <!--footer section end-->
+
+
+</section>
+
+<!-- Placed js at the end of the document so the pages load faster -->
+<script src="/static/common/js/jquery-1.10.2.min.js"></script>
+<script src="/static/common/js/jquery-ui-1.9.2.custom.min.js"></script>
+<script src="/static/common/js/jquery-migrate-1.2.1.min.js"></script>
+<script src="/static/common/js/bootstrap.min.js"></script>
+<script src="/static/common/js/modernizr.min.js"></script>
+<script src="/static/common/js/jquery.nicescroll.js"></script>
+
+<!--common scripts for all pages-->
+<script src="/static/common/js/scripts.js"></script>
+{% block js %}  {% end %}
+
+
+</body>
+</html>

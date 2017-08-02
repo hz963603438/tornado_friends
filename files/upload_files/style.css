@@ -1,0 +1,215 @@
+@charset "UTF-8";
+/**
+ * 
+ * @authors Your Name (you@example.org)
+ * @date    2017-03-15 16:37:15
+ * @version $Id$
+ */
+/* ======================== */
+/* 1.// ResetCss 重置样式
+/* ======================== */
+*{
+	margin: 0;
+	padding: 0;
+	border: 0;
+	outline: 0;
+	vertical-align: baseline;
+}
+a{
+	text-decoration: none;
+}
+li{
+	list-style: none;
+}
+.wrap990{
+	width: 990px;
+	position: relative;
+	margin: 0 auto;
+}
+body{
+	background: #f3f3f3;
+}
+
+/* ======================== */
+/* 2.// Font 字体
+/* ======================== */
+body{
+	font-family: arial,"Microsoft Yahei","Hiragino Sans GB",sans-serif;
+	font-size: 14px;
+	color: #333;
+	height:3000px;
+}
+a{
+	color: #333;
+}
+h3{
+	font-size:14px ;
+}
+/* ======================== */
+/* 3.// Header 
+/* ======================== */
+.header{
+	height: 50px;
+	background: rgba(0,0,0,0.67);	
+}
+/* ======================== */
+/* 3.1// logo 
+/* ======================== */
+	.logo a{
+		background: url('../img/logo_cn.png');
+		display: block;
+		width: 150px;
+		height: 50px;
+	}
+/* ======================== */
+/* 3.2// phone 
+/* ======================== */
+	.client{
+		position: absolute;
+		top: 0;
+		left: 162px;
+	}
+	.client:hover .phone-code{
+		display: block;
+	}
+	.client a {
+		line-height: 50px;
+		color: #ff7e3e;
+		display: block;
+	}
+	.client a i{
+		display: inline-block;
+		width: 10px;
+		height: 14px;
+		background: url('../img/header_mobile.png');
+		vertical-align: middle;
+		margin-top:-2px;
+		/* margin-right: 2px;   */
+	}
+	.phone-code{
+		padding: 19px 17px;
+		border: 1px solid #e5e5e5;
+		padding-bottom: 10px;
+		position: absolute;
+		left: 0px;
+		top: 50px;
+		display: none;
+	}
+	.phone-code h3{
+		line-height:23px;
+	}
+
+/* ======================== */
+/* 3.3// phone 
+/* ======================== */
+.nav{
+
+}
+.nav-list{
+	position: absolute;
+	left: 240px;
+	top: 0px;
+}
+.nav-list li{
+	line-height: 50px;
+	padding: 0 8px;
+	float: left;
+}
+.nav-list li a{
+	font-size: 16px;
+	color: white;
+}
+.arrow-icon{
+	display: inline-block;
+	border: 5px solid white;
+	border-color: white transparent transparent transparent;
+	vertical-align: middle;
+	margin-top: 6px;
+
+}
+.write-icon{
+	display: inline-block;
+	width: 16px;
+	height: 17px;
+	background: url('../img/header_icon.png');
+	background-position:0px -13px;
+	vertical-align: middle;
+	margin-top: 5px;
+}
+
+/* ======================== */
+/* 3.4// login/reg 
+/* ======================== */
+.login{
+	position: absolute;
+	right: 0;
+	top: 0;
+}
+.login a{
+	vertical-align: middle;
+	border-right: 1px solid white;
+	color: white;
+	padding: 0 6px;
+	line-height: 50px;
+}
+.login a:last-child{
+	border: 0;
+}
+
+/* ======================== */
+/* 4// main 
+/* ======================== */
+.main-l{
+	width: 730px;
+}
+.hot-section{
+	height: 60px;
+	background: white;
+	overflow: hidden;
+	font-size: 12px;
+	margin: 10px 0;
+}
+.hot-title{
+	float: left;
+	width: 72px;
+}
+.hot-title a {
+	line-height: 60px;
+	display: block;
+	text-align: right;
+}
+.hot-content i {
+    display: inline-block;
+    width: 24px;
+    height: 24px;
+    background: url('../img/hot1.png');
+    background-size: 100% 100%;
+    vertical-align: middle;
+    margin-top: -2px;
+}
+.hot-content a:nth-child(2) i{
+	background: url('../img/hot2.png');
+	background-size: 100% 100%;
+}
+.hot-content a:nth-child(3) i{
+	background: url('../img/hot3.png');
+	background-size: 100% 100%;
+}
+.hot-content a:nth-child(4) i{
+	background: url('../img/hot4.png');
+	background-size: 100% 100%;
+}
+.hot-content a:nth-child(5) i{
+	background: url('../img/hot5.png');
+	background-size: 100% 100%;
+}
+.hot-content {
+	margin-top: 20px;
+	margin-bottom: 16px;
+}
+.hot-content a{
+	margin-left: 16px;
+}
+.hot-border{
+	border: 1px solid #e5e5e5;
+}

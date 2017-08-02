@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>Regist</h1><br>
+{% if error %}
+    {{ error }}
+{% end  %}
+<form class= "login" method="post" action="/regist">
+        {% module xsrf_form_html() %}
+        <p>用户名<br><input type="text" name="name"></p>
+        <p>密码1<br><input type="text" name="password1"></p>
+        <p>密码2<br><input type="text" name="password2"></p>
+        <input type="submit">
+</form>
+</body>
+</html>

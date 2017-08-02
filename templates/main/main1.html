@@ -1,0 +1,50 @@
+{% extends "13_sqlalchemy_test_base.html" %}
+
+{% block body %}
+
+    <!--使用了self.current_user变量-->
+   {% if currentuser %}
+        <p class="username">欢迎用户{{currentuser.username}}登录</p><br/>
+        <td style="height: 200px;width: 200px;">
+            <img src="/static/images/useravatars/{{ currentuser.avatar }}"><br/>
+        </td>
+    {% else %}
+        <p class="login"><a href="/login">请登录</a></p><br/>
+        <td style="height: 200px;width: 200px;">
+            <img src="/static/images/avatar6.jpg"><br/>
+        </td>
+    {% end %}
+    <!--通过变量传入user对象-->
+    {% for user in users  %}
+        {%if user %}
+            <!--{{user.username}}</br>-->
+            <!--{{user.id}}</br>-->
+            <!--{{user.last_login}}</br>-->
+            <!--{{user.createtime}}</br>-->
+            <!--{{user.uuid}}-->
+            <!--<form class= "login" method="post" action="/modifyname/{{user.uuid}}">-->
+                    <!--{% module xsrf_form_html() %}-->
+                    <!--<p>新用户名<br><input type="text" name="name"></p>-->
+                    <!--<p>删除用户<br><input type="text" name="delete"></p>-->
+                    <!--<input type="submit">-->
+            <!--</form>-->
+            {{user.username}}..{{user.createtime}}..{{user.loginnum}}
+            <a href="http://192.168.201.130:9000/modifyname?uuid={{user.uuid}}" >
+                删除</br>
+            </a>
+        {% end %}
+    {% end %}
+
+    <a href="/message">朋友圈</a></br>
+
+{% end %}
+{% block js %}
+    <script src="/static/js/jquery.backstretch.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function(){
+        $.backstretch("/static/images/0021.jpg");
+        });
+    </script>
+{% end %}
+
+

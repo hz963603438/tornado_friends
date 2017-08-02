@@ -1,0 +1,82 @@
+{% extends "admin_base.html" %}
+{% block title %} 管理后台{% end %}
+        <!-- page heading start-->
+        {% block heading%}
+        <div class="page-heading">
+            <h3>
+                Dashboard
+            </h3>
+            <ul class="breadcrumb">
+                <li>
+                    <a href="#">Dashboard</a>
+                </li>
+                <li class="active"> My Dashboard </li>
+            </ul>
+        </div>
+        {% end %}
+        <!-- page heading end-->
+
+        <!--body wrapper start-->
+        {% block wrapper %}
+        <div class="wrapper">
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="panel blue-box twt-info">
+                        <div class="panel-body">
+                            <h3>19 Februay 2014</h3>
+
+                            <p>AdminEx is new model of admin
+                            dashboard <a href="#">http://t.co/3laCVziTw4</a>
+                            4 days ago by John Doe</p>
+                        </div>
+                    </div>
+                    <div class="panel">
+                        <div class="panel-body">
+                            <div class="media usr-info">
+                                <a href="#" class="pull-left">
+                                    <img class="thumb" src="/static/common/images/photos/user2.png" alt=""/>
+                                </a>
+                                <div class="media-body">
+                                    <h4 class="media-heading">Mila Watson</h4>
+                                    <span>Senior UI Designer</span>
+                                    <p>I use to design websites and applications for the web.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="panel-footer custom-trq-footer">
+                            <ul class="user-states">
+                                <li>
+                                    <i class="fa fa-heart"></i> 127
+                                </li>
+                                <li>
+                                    <i class="fa fa-eye"></i> 853
+                                </li>
+                                <li>
+                                    <i class="fa fa-user"></i> 311
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="panel">
+                        <div class="panel-body extra-pad">
+                            <div class="col-sm-6 col-xs-6">
+                                <div class="v-title">Visits</div>
+                                <div class="v-value">10,090</div>
+                                <div id="visit-1"></div>
+                                <div class="v-info">Pages/Visit</div>
+                            </div>
+                            <div class="col-sm-6 col-xs-6">
+                                <div class="v-title">Unique Visitors</div>
+                                <div class="v-value">8,173</div>
+                                <div id="visit-2"></div>
+                                <div class="v-info">Avg. Visit Duration</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% end %}
+        <!--body wrapper end-->

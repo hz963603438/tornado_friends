@@ -1,0 +1,62 @@
+{% extends "admin_base.html" %}
+{% block title %} 管理后台{% end %}
+<!-- page heading start-->
+{% block heading%}
+<div class="page-heading">
+    <h3>
+        Dashboard
+    </h3>
+    <ul class="breadcrumb">
+        <li>
+            <a href="#">Dashboard</a>
+        </li>
+        <li class="active"> My Dashboard </li>
+    </ul>
+</div>
+{% end %}
+<!-- page heading end-->
+
+<!--body wrapper start-->
+{% block wrapper %}
+<div class="wrapper">
+            <div class="row">
+            <div class="col-sm-12">
+                <section class="panel">
+
+                    <p>文件ID{{ files.id }}</p>
+                    <p>文件名{{ files.filename }}</p>
+                    <p>文件权限{{ files.p_id }}</p>
+                    <p>文件权限{{ files.uuid }}</p>
+                    <form method="post" action="/editfile?uuid={{ files.uuid }}">
+                        {% module xsrf_form_html() %}
+                        <input type="text" name="name">
+                        <input type="submit" value="提交修改">
+                    </form>
+
+                    {% if files.filename.split('.')[-1] in ['jpg', 'bmp', 'png'] %}
+                        <p>文件预览：</p>
+                        <img style="width: 300px;height: 200px;" src="/images/{{ files.filename }}">
+                    {% elif files.filename.split('.')[-1] in ['mp3', 'ogg'] %}
+                        <p>文件预览：</p>
+                        <audio controls="controls" height="100" width="100">
+                          <source src="/images/{{ files.filename }}" type="audio/mp3" />
+                          <source src="/images/{{ files.filename }}" type="audio/ogg" />
+                          <embed height="100" width="100" src="song.mp3" />
+                        </audio>
+                    {% elif files.filename.split('.')[-1] in ['mp4', 'ogg', 'webm', 'mkv'] %}
+                        <p>文件预览：</p>
+                        <video width="320" height="240" controls="controls">
+                          <source src="/images/{{ files.filename }}" type="video/mp4" />
+                          <source src="/images/{{ files.filename }}" type="video/ogg" />
+                          <source src="/images/{{ files.filename }}" type="video/webm" />
+                          <object data="/images/{{ files.filename }}" width="320" height="240">
+                            <embed src="movie.swf" width="320" height="240" />
+                          </object>
+                        </video>
+                    {% end %}
+                </section>
+            </div>
+        </div>
+    </div>
+{% end %}
+<!--body wrapper end-->

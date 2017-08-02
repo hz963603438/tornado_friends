@@ -1,0 +1,50 @@
+插入数据：insert into erweima(name,address,desknumber) values ('湖南大碗菜','南海大道西海岸大厦','1号桌');
+
+删除某一行的数据：delete from erweima where id=1;
+
+查询表中数据：select * from 表名称;
+
+查询表结构：show create table 表名称;
+
+修改字段数据类型:alter table erweima modify desknumber varchar(45);
+
+更新数据：update 表名称 set 列名1=列名1-10000 where 列名2=huzheng;
+
+更新某一列：update 表名 set 列名称='';
+
+增添字段： alter table 表名称 add 字段名 int(11);
+
+查看表结构：desc 表名称;
+
+查看mysql数据库里的user表的用户：select host,user from user;
+
+删除授权：delete from user where user='huzheng' and host='%';
+
+无条件内连接：select * from student inner join teacher;
+
+有条件内连接：select * from student inner join teacher on student.t_id = teacher.t_id;
+
+联表查询.改列名：select students.id as s_id, students.name as s_name,dept_id, departments.id as d_id, 
+                 departments.name from students inner join departments;
+
+联表查询.改表名、列名：select s.id as s_id, s.name as s_name,dept_id, d.id as d_id, 
+                 d.name as a_name from students as s inner join departments as d;
+
+联表查询.改表名、列名加条件：select s.id as s_id, s.name as s_name,dept_id, d.id as d_id, 
+                             d.name as d_name from students as s inner join departments as d
+                             where s.dept_id = d.id;  (不能用列别名，能用表别名）
+ON用法：  select s.id as s_id, s.name as s_name, 
+          d.name from students as s inner join departments as d
+          on s.dept_id = d.id where 1;   (on筛选出有意义的，on成立就拼接，减少拼接次数)
+
+查询用户：select host,user from user;
+
+不删除字段，只更新其中的内容:update biaoming set ziduan= ；
+
+删除字段:alter table biaoming  drop column ziduan  ；
+
+centos关闭mysql服务：/etc/init.d/mysqld stop      启动：start   重启：restart   状态：status
+
+ubuntu关闭mysql服务：sudo service mysql stop      启动：start   重启：restart   状态：status
+
+最开始设置密码：1、mysql_install_db    2、mysqladmin -uroot password"123456"

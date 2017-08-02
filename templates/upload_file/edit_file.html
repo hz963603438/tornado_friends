@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<p>文件ID{{ files.id }}</p>
+<p>文件名{{ files.filename }}</p>
+<p>文件权限{{ files.p_id }}</p>
+<p>文件权限{{ files.uuid }}</p>
+<form method="post" action="/editfile?uuid={{ files.uuid }}">
+    {% module xsrf_form_html() %}
+    <input type="text" name="name">
+    <input type="submit" value="提交修改">
+</form>
+
+</body>
+</html>

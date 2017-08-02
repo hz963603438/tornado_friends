@@ -1,0 +1,97 @@
+{% extends "admin_base.html" %}
+{% block title %} 管理后台{% end %}
+<!-- page heading start-->
+{% block heading%}
+<div class="page-heading">
+    <h3>
+        Dashboard
+    </h3>
+    <ul class="breadcrumb">
+        <li>
+            <a href="#">Dashboard</a>
+        </li>
+        <li class="active"> My Dashboard </li>
+    </ul>
+</div>
+{% end %}
+<!-- page heading end-->
+
+<!--body wrapper start-->
+{% block wrapper %}
+<div class="wrapper">
+            <div class="row">
+            <div class="col-sm-12">
+                <section class="panel">
+                    <header class="panel-heading">
+                        文件列表 <a href="/uploadfile">上传文件</a>
+                            <span class="tools pull-right">
+                                <a href="javascript:;" class="fa fa-chevron-down"></a>
+                                <a href="javascript:;" class="fa fa-times"></a>
+                             </span>
+                    </header>
+                    <div class="panel-body">
+                        <table class="table table-striped">
+                            <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>文件名</th>
+                                <th>建立日期</th>
+                                <th>文件类型</th>
+                                <th>文件长度</th>
+                                <th>是否删除</th>
+                                <th>权限</th>
+                                <th>编辑</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                                {% for fi in files %}
+                                    <tr>
+                                        <td>{{fi.id}}</td>
+                                        <td>{{fi.filename}}</td>
+                                        <td>{{fi.createtime}}</td>
+                                        <td>{{fi.content_type}}</td>
+                                        <td>{{fi.content_length}}</td>
+                                        <td>{{fi.locked}}</td>
+                                        <td>{{fi.p_id}}</td>
+                                        <td>
+                                            <a href="/editfile?uuid={{fi.uuid}}" >编辑</a>
+                                            <a href="/deletefile?uuid={{fi.uuid}}" >删除</a>
+                                            <a href="/downfile?filename={{fi.filename}}" >下载</a>
+                                        </td>
+                                    </tr>
+                                {% end %}
+                            </tbody>
+                        </table>
+                            <div>
+                                <ul class="pagination pagination-sm">
+                                    <li><a href="{{ files_page['pre_page'] }}">«</a></li>
+                                    {% if files_page['current_page'] >=3 %}
+                                        <li><a href="1">首页</a></li>
+                                        <li><a href="{{ files_page['pre_page'] }}">...</a></li>
+                                    {% end %}
+                                    {% for index in files_page['pages'] %}
+                                        <li {% if index ==files_page['current_page'] %} class="active" {% end %} >
+                                            <a href="/filestable/{{ index }}">{{ index }}</a>
+                                        </li>
+                                    {% end %}
+                                    {% if files_page['current_page'] <= files_page['count']-2 %}
+                                        <li><a href="{{ files_page['pre_page'] }}">...</a></li>
+                                        <li><a href="{{ files_page['count'] }}">尾页</a></li>
+                                    {% end %}
+                                    <li><a href="/filestable/{{ files_page['next_page']}}">»</a></li>
+                                    <form method="post" action="/jumppage">
+                                        {% module xsrf_form_html() %}
+                                        到第<input style="width: 50px" type="text" name="huzheng">页
+                                            <input type="submit" value="确定">
+                                    </form>
+
+                                </ul>
+                                <p>共{{files_page['count']}}页|第{{files_page['current_page']}}页</p>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </div>
+{% end %}
+<!--body wrapper end-->

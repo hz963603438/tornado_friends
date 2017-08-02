@@ -1,0 +1,70 @@
+显示根目录文件：ls
+查看某接口运行的程序：sudo netstat -anp | grep 接口号
+运行某个文件：sudo python main.py 8081
+进入vim编辑模式：vim main.py，然后i进行编辑
+保存并退出vim编辑模式：按esc键，输入:wq，然后quit！
+不保存直接退出vim：按esc键，再q!
+显示一个文件的内容：cat main.py
+将py文件编译成pyc文件:python -m compileall main.py
+应用py程序：python main.py 8081
+切换到root用户：sudo su
+查看某项文件进程号：ps -ef | grep python  或者pgrep python 或者pidof python
+kill进程：kill -s 9 进程号
+查看所有接口进程：netstat -apn
+删除文件或目录：rm main.py   或  rm -r 目录名
+谢宇天的项目：cd /alidata/www/wxtest/pywx
+返回上一级：cd ..
+查看ip地址：ifconfig
+查看网关：nm-tool
+显示当前位置：pwd
+根目录（首目录:  cd /
+显示所有：ls -al或者ls -la
+只查看文件夹不跳进去：ls -d b*
+增加空文件：> empty1.txt    touch empth2.txt      echo > empty3.txt
+创建文件并添加内容：echo ‘i am huzheng’> empty1.txt
+
+查看redis服务器系统进程：ps aux |grep redis
+在终端中通过启动命令检查redis服务器状态：netstat -nlt|grep 6379   或者netstat -apn|grep 6379
+通过启动命令检查redis服务器状态：sudo /etc/init.d/redis-server status
+
+查看进程号为1118：ps aux |grep 1118 
+查看脚本在哪：lsof |grep ccc.sh
+netstat -tnlp 查看端口 netstat -anp|grep 80  
+free -m  查看运行内存
+kill 1118：杀死进程
+ps aux |grep nginx
+在huzheng文件夹下创建多个文件：touch huzheng/{a..z}.txt
+压缩文件：gzip a.txt
+解压文件：gunzip a.txt.gz
+查看接口状态：lsof -i: 8080  或者 netstat -tunlp | grep 80
+查看系统版本：uname -a    cat /etc/redhat-release    cat /proc/version     cat /etc/issue   lsb_release -a
+              lsb_release -a
+
+设置python文件自启动：/alidata/www/project/python aliyuns.py 80
+                      vim /etc/rc.local
+                      添加 /alidata/www/project/python aliyuns.py 80
+查看用户登录日志：cd /var/log     less secure   或者less messages   或者 last
+查找文件：find / -name 文件名
+安装rz sz：yum -y install lrzsz
+查看软件rpm包是否安装成功：rpm  -qa|grep mysql   或者  netstat -apn|grep mysql
+查看某软件是否运行：ps aux |grep reids
+查看所有用户：cat /etc/passwd   less /etc/passwd  more /etc/passwd
+查看用户组：cat /etc/group
+查看当前在线用户：who   
+查看最近用户的登陆记录：last
+查看可登陆的用户：cat /etc/passwd |grep bash
+查看磁盘使用情况：df -l  或者  df -lh 或 fdisk -l  
+查看当前目录下所有文件的大小：ls -lht
+设置成开机启动：chkconfig mysqld on
+修改网卡ip地址：/etc/sysconfig/network-scripts/ifcfg-eth0  /etc.init.d/  或者service network restart
+
+卸载mysql和php：rpm -qa|grep -i mysql
+
+可以看到mysql的包：
+
+mysql-3.23.58-9
+php-mysql-4.3.4-11
+mod_auth_mysql-20030510-4.1
+mysql-server-3.23.58-9
+
+rpm -ev mysql-server-3.23.58-9

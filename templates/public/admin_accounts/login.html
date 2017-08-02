@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+login<br>
+
+<form class= "login" method="post" action="/login?aaa={{nextname}}">
+        {% module xsrf_form_html() %}
+        <p>用户名<br><input type="text" name="name"></p>
+        <p>密码<br><input type="text" name="password"></p>
+        <input type="submit">
+</form>
+</body>
+</html>

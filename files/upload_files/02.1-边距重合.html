@@ -1,0 +1,40 @@
+<!doctype html>
+<html>
+    <head>
+        <!--字符编码集-->
+        <meta charset="utf-8">
+        <meta name="keywords" content="关键词,关键字" />
+        <meta name="description" content="页面描述信息-80字以内描述信息" />
+        <title>外边距重合</title>
+        <style>
+        	*{
+        		margin:0;
+        		padding:0;
+        	}
+        	.box1{
+        		width:80px;
+        		height:80px;
+        		background: red;
+        		margin-bottom:20px;
+        	}
+        	.box2{
+        		width:100px;
+        		height:100px;
+        		background: blue;
+        		margin-top:10px;
+        	}
+        	.baba{
+        		/*overflow:hidden;*/
+        		border-width:1px;
+        		border-style:solid;
+        		border-color:transparent;
+        	}
+        </style>
+    </head>
+<body>
+	<div class="box1">1</div>
+	<div class="baba">
+		<div class="box2">2</div>
+	</div>
+</body>
+</html>

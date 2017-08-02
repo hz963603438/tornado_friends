@@ -1,0 +1,227 @@
+{% extends '../main/main_base.html' %}
+
+{% block wrapper %}
+        <!-- page heading start-->
+        <div class="page-heading">
+            <h3>
+                朋友圈 <small>Subtext for header</small>
+            </h3>
+            <ul class="breadcrumb">
+                <li>
+                    <a href="#">Dashboard</a>
+                </li>
+                <li>
+                    <a href="#">Extra Pages</a>
+                </li>
+                <li class="active">朋友圈</li>
+            </ul>
+        </div>
+        <!-- page heading end-->
+
+        <!--body wrapper start-->
+        <div class="wrapper">
+        <div class="row blog">
+
+        <div class="col-md-2"> </div>
+        <div class="col-md-8">
+
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="panel">
+                                <div class="panel-body">
+                                        <div class="blog-img-wide">
+                                            <img src="/static/common/images/blog/blog-wide-img.jpg" alt="">
+                                        </div>
+                                        <p>
+                                            好好学习， 天天向上
+                                        </p>
+                                        <p>
+                                        {% for fr in friends %}
+                                            {{ fr.friend.username }}<br/>
+                                        {% end %}
+                                        </p>
+                                        <a href="#" class="more">我的</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 消息发布 -->
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="panel">
+                                <form  id="message" method="post" action="/addmessage" >
+                                        {% module xsrf_form_html() %}
+                                        <textarea class="form-control input-lg p-text-area" rows="2" placeholder="这一刻的想法?" name="message"></textarea>
+                                        <input class="btn btn-post pull-right" type="submit" value="发布">
+
+                                    <footer class="panel-footer">
+                                        <ul class="nav nav-pills p-option">
+                                            <li>
+                                                <a href="#"><i class="fa fa-camera"></i></a>
+                                            </li>
+                                        </ul>
+                                        <input type="file" name="myfilename"/><br>
+                                        <input  type="submit" value="上传文件" />
+                                    </footer>
+                                 </form>
+                            </div>
+                        </div>
+                    </div><!-- 消息发布结束 -->
+
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="panel">
+                                <header class="panel-heading">
+                                    recent activities
+                                    <span class="tools pull-right">
+                                        <a class="fa fa-chevron-down" href="javascript:;"></a>
+                                        <a class="fa fa-times" href="javascript:;"></a>
+                                     </span>
+                                </header>
+                                <!-- 消息列表 -->
+                                <div class="panel-body">
+                                    <ul class="activity-list">
+
+                                        {% for mes in messages %}
+                                            <li>
+                                                 <div class="row">
+                                                     <div class="col-md-12">
+                                                        <div class="avatar">
+                                                            <img src="/static/images/useravatars/{{ mes.user1.avatar }}" alt=""/>
+                                                        </div>
+                                                        <div class="activity-desk">
+                                                            <h5><a href="#">{{ mes.user1.username }}</a> <span>Uploaded 5 new photos</span></h5>
+                                                            <p class="text-muted">{{ mes.createtime }}</p>
+                                                            <p class="text-muted">{{ mes.message }}</p>
+                                                            <div class="album">
+                                                                {% for img in mes.m_images %}
+                                                                    <a href="#">
+                                                                        <img alt="" src="/messageimages/{{ img.filename }}">
+                                                                    </a>
+                                                                {% end %}
+                                                            </div>
+                                                        </div>
+                                                     </div>
+                                                 </div>
+
+                                                <div class="row">
+                                                     <div class="col-md-12">
+                                                        <a class="btn p-follow-btn pull-left" href="/flike?uuid={{ mes.uuid }}">
+                                                            <i class="fa fa-heart-o"></i>
+                                                            点赞{{ len(mes.message_user) }}
+                                                        </a>
+                                                         {%  for user in mes.message_user %}
+                                                            {{ user.username }}
+                                                         {% end %}
+                                                        <a class="p-social-link pull-right pinglun-btn" href="javascript:;"  data-id="{{ mes.uuid }}"  ><i class="fa fa-comment"></i> 评论</a>
+
+                                                    </div>
+                                                </div>
+
+                                                    <!-- 评论发布 -->
+                                                    <div class="row comment-send" id="{{ mes.uuid }}" style="display: none;">
+                                                        <div class="col-md-12">
+                                                            <div class="panel">
+                                                                <form class="comment-form" id={{ mes.uuid }} method="post" action="/addcomment" >
+                                                                        {% module xsrf_form_html() %}
+                                                                        <input type="hidden" class="captcha-code" name="uuid" value="{{ mes.uuid }}">
+                                                                        <textarea style="background-color: aliceblue;" class="form-control input-lg p-text-area"  rows="2" placeholder="写下你的评论..." name="comment"></textarea>
+                                                                        <input  class="btn btn-post pull-right comment-btn" type="submit"  data-id="{{ mes.uuid }}" value="发布评论">
+                                                                </form>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <!-- 评论发布结束 -->
+                                                    <!-- 评论 -->
+                                                 {% for com in mes.comments %}
+                                                            <div  class="media-body" style="background-color: #eeeeee; border-radius:5px; margin: 0px 30px">
+                                                                <h5 style="margin: 5px 20px 5px 20px;">
+
+                                                                    <a href="#">{{ com.user1.username }}:</a>
+                                                                    <span>{{ com.comment }}</span><br/>
+
+                                                                </h5>
+                                                            </div>
+                                                 {% end %}
+                                                    <!-- 评论结束 -->
+
+
+
+
+                                            </li>
+                                        {% end %}
+
+
+
+                                        <li>
+                                             <div class="row">
+                                                 <div class="col-md-12">
+                                                    <div class="avatar">
+                                                        <img src="/static/common/images/photos/user1.png" alt=""/>
+                                                    </div>
+                                                    <div class="activity-desk">
+                                                        <h5><a href="#">Jonathan Smith</a> <span>Uploaded 5 new photos</span></h5>
+                                                        <p class="text-muted">7 minutes ago near Alaska, USA</p>
+                                                        <div class="album">
+                                                            <a href="#">
+                                                                <img alt="" src="/static/common/images/gallery/image1.jpg">
+                                                            </a>
+                                                            <a href="#">
+                                                                <img alt="" src="/static/common/images/gallery/image2.jpg">
+                                                            </a>
+                                                            <a href="#">
+                                                                <img alt="" src="/static/common/images/gallery/image3.jpg">
+                                                            </a>
+                                                        </div>
+                                                    </div>
+                                                 </div>
+                                             </div>
+
+                                            <div class="row">
+                                                 <div class="col-md-12">
+                                                    <a class="btn p-follow-btn pull-left" href="/flike?uuid='aaa'"> <i class="fa fa-heart-o"></i> 点赞</a>
+                                                    <a class="p-social-link pull-right" href="/addcomment?uuid='bbb'"><i class="fa fa-comment"></i> 评论</a>
+
+                                                </div>
+                                            </div>
+
+                                        </li>
+
+                                    </ul>
+                                </div> <!-- 消息列表结束 -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+        <div class="col-md-2"> </div>
+
+        </div>
+        </div>
+        <!--body wrapper end-->
+
+        <!--footer section start-->
+        <footer class="">
+            2014 &copy; AdminEx by ThemeBucket
+        </footer>
+        <!--footer section end-->
+
+{% end %}
+
+{% block footer %}
+     <footer class="sticky-footer">
+     </footer>
+{% end %}
+
+
+{% block js %}
+    <script src="/static/js/jquery.form.min.js"></script>
+    <script src="/static/js/friends_list/friends_list.js"></script>
+    <script src="/static/js/jquery.backstretch.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function(){
+        $.backstretch("/static/images/003.jpg");
+        });
+    </script>
+{% end %}

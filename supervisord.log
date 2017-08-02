@@ -1,0 +1,35 @@
+2017-07-25 14:46:40,340 INFO RPC interface 'supervisor' initialized
+2017-07-25 14:46:40,350 INFO daemonizing the supervisord process
+2017-07-25 14:46:40,352 INFO supervisord started with pid 3382
+2017-07-25 14:46:41,366 INFO spawned: 'tornado-10000' with pid 3383
+2017-07-25 14:46:41,396 INFO spawned: 'tornado-8001' with pid 3384
+2017-07-25 14:46:41,409 INFO spawned: 'tornado-9000' with pid 3385
+2017-07-25 14:46:41,420 INFO exited: tornado-10000 (exit status 127; not expected)
+2017-07-25 14:46:42,457 INFO spawned: 'tornado-10000' with pid 3386
+2017-07-25 14:46:42,459 INFO success: tornado-8001 entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2017-07-25 14:46:42,459 INFO success: tornado-9000 entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2017-07-25 14:46:42,471 INFO exited: tornado-10000 (exit status 127; not expected)
+2017-07-25 14:46:44,499 INFO spawned: 'tornado-10000' with pid 3391
+2017-07-25 14:46:44,516 INFO exited: tornado-10000 (exit status 127; not expected)
+2017-07-25 14:46:47,533 INFO spawned: 'tornado-10000' with pid 3392
+2017-07-25 14:46:47,543 INFO exited: tornado-10000 (exit status 127; not expected)
+2017-07-25 14:46:48,546 INFO gave up: tornado-10000 entered FATAL state, too many start retries too quickly
+2017-07-25 14:58:24,531 INFO exited: tornado-8001 (terminated by SIGTERM; not expected)
+2017-07-25 14:58:25,540 INFO spawned: 'tornado-8001' with pid 3408
+2017-07-25 14:58:26,544 INFO success: tornado-8001 entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2017-07-25 14:58:41,482 INFO exited: tornado-9000 (terminated by SIGKILL; not expected)
+2017-07-25 14:58:42,490 INFO spawned: 'tornado-9000' with pid 3413
+2017-07-25 14:58:43,500 INFO success: tornado-9000 entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2017-07-25 14:58:57,761 WARN received SIGTERM indicating exit request
+2017-07-25 14:58:57,761 INFO waiting for tornado-8001, tornado-9000 to die
+2017-07-25 14:58:57,765 INFO stopped: tornado-9000 (terminated by SIGTERM)
+2017-07-25 14:58:57,770 INFO stopped: tornado-8001 (terminated by SIGTERM)
+2017-07-25 14:59:36,641 INFO RPC interface 'supervisor' initialized
+2017-07-25 14:59:36,646 INFO daemonizing the supervisord process
+2017-07-25 14:59:36,648 INFO supervisord started with pid 3423
+2017-07-25 14:59:37,655 INFO spawned: 'tornado-10000' with pid 3424
+2017-07-25 14:59:37,669 INFO spawned: 'tornado-8001' with pid 3425
+2017-07-25 14:59:37,694 INFO spawned: 'tornado-9000' with pid 3426
+2017-07-25 14:59:38,695 INFO success: tornado-10000 entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2017-07-25 14:59:38,695 INFO success: tornado-8001 entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2017-07-25 14:59:38,695 INFO success: tornado-9000 entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)

@@ -1,0 +1,31 @@
+import web
+import urllib2
+urls=("/","Index"，   #/表示访问的页面 Index表示当前访问页面对应处理的类
+)
+
+def gethtml(wd):
+    
+class Index:
+    def GET(self): #不能用保留字，特殊字符，数字开头 用户请求的方式get post put
+        return open('index.html').read()#打开文件
+
+calss So:
+    def GET(self):
+        i=web.input()#接收数据
+        wd=i.get("wd")#获取到用户请求的参数
+        return wd
+web.application().run()
+
+
+http://down.51cto.com/
+http://www.wyzc.com/
+http://study.163.com/?from=study&edusave=1
+http://www.runoob.com/python/python-tutorial.html
+https://pan.baidu.com/share/link?shareid=4151716910&uk=1785433258#list/path=%2F
+https://pan.baidu.com/share/init?shareid=3715745734&uk=1785433258#list/path=%2F
+http://www.csdn.net/
+http://www.liaoxuefeng.com/wiki/0014316089557264a6b348958f449949df42a6d3a2e542c000
+http://www.cnblogs.com/dkblog/archive/2011/02/24/1980654.html
+https://github.com/iweans/tzpytuple
+http://www.linuxidc.com/Linux/2016-04/130807.htm
+http://www.cnblogs.com/benio/archive/2010/09/15/1826728.html

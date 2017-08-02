@@ -1,0 +1,38 @@
+<!doctype html>
+<html>
+    <head>
+        <!--字符编码集-->
+        <meta charset="utf-8">
+        <meta name="keywords" content="关键词,关键字" />
+        <meta name="description" content="页面描述信息-80字以内描述信息" />
+        <title>form表单</title>
+    </head>
+<body>
+	<form action="#" method="GET">
+		账号：<input name="user" value="123" type="text"/><br /> <br />
+		密码：<input name="password" value="456" type="password" /><br /><br />
+		性别：
+		<input checked="checked" name="gender" value="1" type="radio" />男&nbsp;&nbsp;
+		<input id="nv" name="gender" value="2" type="radio" />
+		<label for="nv">女</label>&nbsp;&nbsp;
+		<input name="gender" value="3" type="radio" />保密<br /><br />
+
+        <input checked="checked" name="deskball" type="checkbox" />桌球&nbsp;
+        <input name="movie" type="checkbox" />电影&nbsp;
+        <input name="game" type="checkbox" />LOL&nbsp;
+        <input name="sing" type="checkbox" />唱歌&nbsp;<br />
+
+         <select name="birthday">
+         	<option value="1">1993年</option>
+         	<option value="2">1994年</option>
+         	<option selected="selected" value="3">1995年</option>
+         </select><br /><br />
+        
+        <textarea name="description" cols="100" rows="4"></textarea><br />
+        <input type="button" value="我是按钮" />
+        <input type="reset" value="重置表单"/>
+        <input type="hidden" name="hidden" value="我是隐藏域里面的值" />
+        <br /><br /><input type="submit" value="huzheng" /> 
+	</form>
+</body>
+</html>
